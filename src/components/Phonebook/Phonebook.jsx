@@ -1,19 +1,17 @@
-import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import {
+  selectContacts,
+  selectError,
+  selectLoading,
+} from 'redux/ContactsSlice/selectors';
 import { ContactForm } from './form';
 import { ContactList } from './contactList';
 import { Filter } from './Filter';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts, selectError, selectLoading } from 'redux/selectors';
-import { fetchContacts } from 'services/contactsApi';
-export function Phonebook() {
+
+export const Phonebook = () => {
   const contacts = useSelector(selectContacts);
   const isLoading = useSelector(selectLoading);
   const error = useSelector(selectError);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
   return (
     <>
       <div>
@@ -29,4 +27,4 @@ export function Phonebook() {
       </div>
     </>
   );
-}
+};

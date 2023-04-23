@@ -3,7 +3,7 @@ import {
   fetchContacts,
   postContact,
   deleteContactApi,
-} from 'services/contactsApi';
+} from 'redux/ContactsSlice/operations';
 
 const handlePending = state => {
   state.isLoading = true;
